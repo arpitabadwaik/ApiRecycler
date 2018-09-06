@@ -13,6 +13,7 @@ package com.example.admin1.apirecyclerapplication.activities;
         import com.example.admin1.apirecyclerapplication.adapters.MyAdapter;
         import com.example.admin1.apirecyclerapplication.interfaces.ApiServiceCaller;
         import com.example.admin1.apirecyclerapplication.models.FirstModel;
+        import com.example.admin1.apirecyclerapplication.models.SecondModel;
         import com.example.admin1.apirecyclerapplication.utilities.App;
         import com.example.admin1.apirecyclerapplication.webservices.APiConstants;
         import com.example.admin1.apirecyclerapplication.webservices.JsonResponse;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements ApiServiceCaller{
 
     private RecyclerView recyclerView;
     private ArrayList<FirstModel> arrayList;
+    private ArrayList<SecondModel> phoneList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,27 +55,21 @@ public class MainActivity extends AppCompatActivity implements ApiServiceCaller{
     public void onAsyncSuccess(JsonResponse jsonResponse, String label) {
 
         if (jsonResponse != null) {
-            if (jsonResponse.result != null) {
-                arrayList.addAll(jsonResponse.contacts);
-                MyAdapter myAdapter = new MyAdapter(arrayList, this);
-                recyclerView.setAdapter(myAdapter);
-                Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
-                Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
-            }
+            arrayList.addAll(jsonResponse.contacts);
+            MyAdapter myAdapter = new MyAdapter(arrayList, this);
+            recyclerView.setAdapter(myAdapter);
+            Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     @Override
     public void onAsyncFail(String message, String label, NetworkResponse response) {
-        Toast.makeText(this, "Fail", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "Fail", Toast.LENGTH_SHORT).show();
 
     }
 
     @Override
     public void onAsyncCompletelyFail(String message, String label) {
-        Toast.makeText(this, "Completely Fail", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "Completely Fail", Toast.LENGTH_SHORT).show();
     }
 }

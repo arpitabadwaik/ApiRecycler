@@ -10,7 +10,9 @@ import android.widget.TextView;
 
 import com.example.admin1.apirecyclerapplication.R;
 import com.example.admin1.apirecyclerapplication.models.FirstModel;
+import com.example.admin1.apirecyclerapplication.models.SecondModel;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.zip.Inflater;
 
@@ -18,6 +20,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
     private ArrayList<FirstModel> arrayList;
     private Context context;
+
 
     public MyAdapter(ArrayList<FirstModel> arrayList, Context context) {
         this.arrayList = arrayList;
@@ -34,9 +37,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull MyAdapter.ViewHolder holder, int position) {
 
-       // FirstModel firstModel = arrayList.get(position);
         holder.txtRecycle.setText(arrayList.get(position).getName());
-
+        //holder.txtRecycle.setText(arrayList.get(position).phone.getMobile());
     }
 
     @Override

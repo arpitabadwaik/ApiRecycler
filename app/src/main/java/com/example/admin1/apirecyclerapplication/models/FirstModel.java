@@ -21,7 +21,7 @@ public class FirstModel implements Serializable {
     @SerializedName("gender")
     public String gender;
 
-    //public SecondModel phone;
+    public SecondModel phone;
 
     public String getId() {
         return id;
@@ -43,7 +43,4 @@ public class FirstModel implements Serializable {
         return gender;
     }
 
-    /*public SecondModel getPhone() {
-        return phone;
-    }*/
 }
